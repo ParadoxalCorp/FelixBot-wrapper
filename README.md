@@ -39,7 +39,7 @@ let wrapper = new FelixWrapper({
 
   | Params | Type | Description |
 | --- | --- | --- |
-| user | <code>String || Array</code> | Required. The user ID or an array of IDs of the user(s) to fetch |
+| user | <code>Object OR Array</code> | Required. The user ID or an array of IDs of the user(s) to fetch |
 | options | <code>Object</code> | Optional. An object of options |
 | options.timeout | <code>Number</code> | Optional. The time in ms before this request should be aborted, default is wrapper.timeout |
 
@@ -52,7 +52,7 @@ let wrapper = new FelixWrapper({
 
   | Params | Type | Description |
 | --- | --- | --- |
-| user | <code>String || Array</code> | Required. The user object to POST, will update or create a new database entry |
+| user | <code>Object</code> | Required. The user object to POST, will update or create a new database entry |
 | options | <code>Object</code> | Optional. An object of options |
 | options.timeout | <code>Number</code> | Optional. The time in ms before this request should be aborted, default is wrapper.timeout |
 
@@ -62,7 +62,7 @@ let wrapper = new FelixWrapper({
 
   | Params | Type | Description |
 | --- | --- | --- |
-| guild | <code>String || Array</code> | Required. The guild ID or an array of IDs of the guild(s) to fetch |
+| guild | <code>Object OR Array</code> | Required. The guild ID or an array of IDs of the guild(s) to fetch |
 | options | <code>Object</code> | Optional. An object of options |
 | options.timeout | <code>Number</code> | Optional. The time in ms before this request should be aborted, default is wrapper.timeout |
 
@@ -75,7 +75,7 @@ let wrapper = new FelixWrapper({
 
   | Params | Type | Description |
 | --- | --- | --- |
-| guild | <code>String || Array</code> | Required. The guild object to POST, will update or create a new database entry |
+| guild | <code>String</code> | Required. The guild object to POST, will update or create a new database entry |
 | options | <code>Object</code> | Optional. An object of options |
 | options.timeout | <code>Number</code> | Optional. The time in ms before this request should be aborted, default is wrapper.timeout |
 
