@@ -1,0 +1,19 @@
+{
+    "name": "FelixBot-wrapper",
+    "version": "1.0.0",
+    "description": "A wrapper for Felix's API, the Discord bot",
+    "main": "index.js",
+    "repository": {
+        "url": "https://github.com/ParadoxalCorp/FelixBot"
+    },
+    "author": "ParadoxOrigins",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/ParadoxalCorp/FelixBot-wrapper/issues"
+    },
+    "homepage": "https://github.com/ParadoxalCorp/FelixBot-wrapper#readme",
+    "dependencies": {
+        "enmap": "^0.4.2",
+        "unirest": "^0.5.1"
+    }
+}
