@@ -16,7 +16,7 @@
 ```js
 const FelixWrapper = require("felix-wrapper");
 
-let wrapper = new FelixWrapper({
+const wrapper = new FelixWrapper({
     url: "",
     token: "",
     timeout: 42
