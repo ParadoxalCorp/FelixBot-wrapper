@@ -19,7 +19,8 @@ const FelixWrapper = require("felix-wrapper");
 let wrapper = new FelixWrapper({
     url: "",
     token: "",
-    timeout: 42
+    timeout: 42,
+    autoConversion: false
 });
 ```
 
@@ -27,7 +28,8 @@ let wrapper = new FelixWrapper({
 | --- | --- | --- |
 | url | <code>String</code> | Required. The base url of the domain to request to |
 | token | <code>String</code> | Optional. The token (private or public), optional but required for almost all endpoints |
-| timeout | <code>Number</code> | Optional. The time in ms before requests should be aborted, default is 3000
+| timeout | <code>Number</code> | Optional. The time in ms before requests should be aborted, default is 3000 |
+| autoConversion | <code>Boolean</code> | Optional. Whether arrays should be converted to enhanced maps, default is true | 
 
 ### wrapper.status()
 
@@ -39,7 +41,7 @@ let wrapper = new FelixWrapper({
 
   | Params | Type | Description |
 | --- | --- | --- |
-| user | <code>Object OR Array</code> | Required. The user ID or an array of IDs of the user(s) to fetch |
+| user | <code>String OR Array</code> | Required. The user ID or an array of IDs of the user(s) to fetch |
 | options | <code>Object</code> | Optional. An object of options |
 | options.timeout | <code>Number</code> | Optional. The time in ms before this request should be aborted, default is wrapper.timeout |
 
@@ -62,7 +64,7 @@ let wrapper = new FelixWrapper({
 
   | Params | Type | Description |
 | --- | --- | --- |
-| guild | <code>Object OR Array</code> | Required. The guild ID or an array of IDs of the guild(s) to fetch |
+| guild | <code>String OR Array</code> | Required. The guild ID or an array of IDs of the guild(s) to fetch |
 | options | <code>Object</code> | Optional. An object of options |
 | options.timeout | <code>Number</code> | Optional. The time in ms before this request should be aborted, default is wrapper.timeout |
 
@@ -75,7 +77,7 @@ let wrapper = new FelixWrapper({
 
   | Params | Type | Description |
 | --- | --- | --- |
-| guild | <code>String</code> | Required. The guild object to POST, will update or create a new database entry |
+| guild | <code>Object</code> | Required. The guild object to POST, will update or create a new database entry |
 | options | <code>Object</code> | Optional. An object of options |
 | options.timeout | <code>Number</code> | Optional. The time in ms before this request should be aborted, default is wrapper.timeout |
 

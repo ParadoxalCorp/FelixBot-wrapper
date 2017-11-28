@@ -6,6 +6,7 @@ class FelixWrapper {
         this.url = `${options.url}/api`;
         this.token = `Bearer ${options.token}`;
         this.timeout = options.timeout || 3000;
+        this.autoConversion = options.autoConversion === false ? false : true;
     }
 
     /**
@@ -46,9 +47,8 @@ class FelixWrapper {
                         response.body.forEach(u => { users.set(u.id, u) });
                         return resolve(users);
                     }
-                    if (!response.body.mutualGuilds) return resolve(response.body);
+                    if (!response.body.mutualGuilds || !wrapper.autoConversion) return resolve(response.body);
                     let guilds = new Collection();
-                    //console.dir(response.body.mutualGuilds);
                     response.body.mutualGuilds.forEach(guild => {
                         let channels = new Collection(),
                             roles = new Collection(),
@@ -94,6 +94,7 @@ class FelixWrapper {
                 .end(response => {
                     if (typeof response.error === "object" && response.error.Error === "ETIMEDOUT") return reject("timeout");
                     if (response.statusCode !== 200) return reject(response.body);
+                    if (!wrapper.autoConversion) return resolve(response.body);
                     if (Array.isArray(response.body)) {
                         let guilds = new Collection();
                         response.body.forEach(u => { guilds.set(g.id, g) });
