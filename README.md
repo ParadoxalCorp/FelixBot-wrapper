@@ -11,7 +11,9 @@
 
 ## Tables of contents
 [Constructor](https://github.com/ParadoxalCorp/FelixBot-wrapper/blob/master/README.md#constructor)
+
 [Methods](https://github.com/ParadoxalCorp/FelixBot-wrapper/blob/master/README.md#methods)
+
 [Error Handling](https://github.com/ParadoxalCorp/FelixBot-wrapper/blob/master/README.md#error-handling)
 
 ## Constructor
