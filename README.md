@@ -9,9 +9,12 @@
 
   This wrapper covers 100% of Felix's API and will be updated at the same time as Felix's API is
 
-  All methods are async and returns promise, errors are in most case rejected
+## Tables of contents
+[Constructor](https://github.com/ParadoxalCorp/FelixBot-wrapper/blob/master/README.md#constructor)
+[Methods](https://github.com/ParadoxalCorp/FelixBot-wrapper/blob/master/README.md#methods)
+[Error Handling](https://github.com/ParadoxalCorp/FelixBot-wrapper/blob/master/README.md#error-handling)
 
-### Constructor
+## Constructor
 
 ```js
 const FelixWrapper = require("felix-wrapper");
@@ -28,8 +31,10 @@ let wrapper = new FelixWrapper({
 | --- | --- | --- |
 | url | <code>String</code> | Required. The base url of the domain to request to |
 | token | <code>String</code> | Optional. The token (private or public), optional but required for almost all endpoints |
-| timeout | <code>Number</code> | Optional. The time in ms before requests should be aborted, default is 3000 |
-| autoConversion | <code>Boolean</code> | Optional. Whether arrays should be converted to enhanced maps, default is true | 
+| timeout | <code>Number</code> | Optional. The time in ms before requests should be aborted, default is 6000 |
+| autoConversion | <code>Boolean</code> | Optional. Whether arrays should be converted to enhanced maps, default is true |
+
+## Methods 
 
 ### wrapper.status()
 
@@ -90,3 +95,32 @@ let wrapper = new FelixWrapper({
   | Params | Type | Description |
 | --- | --- | --- |
 | value | <code>String</code> | Required. The value to fetch, this will be interpreted as a property name of the client object |
+
+## Error Handling
+
+As of update `1.2.0`, errors have been standardized and now follow a logical scheme.
+
+All errors are rejected and the rejection structure is the following:
+
+```js
+{
+  code: 403,
+  message: 'Forbidden',
+  data: 'Forbidden'
+}
+```
+
+  | Props | Type | Description |
+| --- | --- | --- |
+| code | <code>Number</code> | The HTTP error code returned by the server or an appropriate equivalent regarding the error |
+| message | <code>String</code> | The description of the HTTP error code |
+| data | <code>*</code> | The error the server returned, this can be a simple "Forbidden" to an array of invalid data the server encountered in a post request |
+
+Errors code you are the most likely to encounter:
+
+  | Code | Message | Description |
+| --- | --- | --- |
+| 400 | Bad Request | The object sent along with a method like `postUser()` is invalid |
+| 403 | Forbidden | You did not specified a token, the token is invalid or you have a public token and tried to use a method restricted to private tokens |
+| 408 | Request Timeout | The server did not answered in the time set in the constructor, or in the 6000 default ms |
+| 429 | Too Much Requests | You use a public token and reached the rate-limit |
